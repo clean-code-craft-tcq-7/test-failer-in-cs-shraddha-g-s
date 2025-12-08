@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "misaligned", "misaligned\misaligned.csproj", "{5AE8E33D-0A9F-4D91-BE28-6000FCDA9387}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Misaligned", "misaligned\Misaligned.csproj", "{5AE8E33D-0A9F-4D91-BE28-6000FCDA9387}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tshirts", "tshirts\tshirts.csproj", "{8E49CDAF-1488-4CF4-81AE-A2B314BD1243}"
 EndProject
