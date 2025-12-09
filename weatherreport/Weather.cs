@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace TemperatureSpace
+namespace Philips.TemperatureSpace
 {
-    class Weather
+    public class Weather
     {
         internal static string Report(IWeatherSensor sensor)
         {
-            int precipitation = sensor.Precipitation();
+            int precipitation = sensor.Precipitation;
             // precipitation < 20 is a sunny day
             string report = "Sunny Day";
 
-            if (sensor.TemperatureInC() > 25)
+            if (sensor.TemperatureInC > 25)
             {
                 if (precipitation >= 20 && precipitation < 60)
                     report = "Partly Cloudy";
-                else if (sensor.WindSpeedKMPH() > 50)
+                else if (sensor.WindSpeedKMPH > 50)
                     report = "Alert, Stormy with heavy rain";
             }
             return report;
@@ -33,12 +33,16 @@ namespace TemperatureSpace
         {
             // This instance of stub needs to be different-
             // to give high precipitation (>60) and low wind-speed (<50)
-            IWeatherSensor sensor = new SensorStub();
+            IWeatherSensor sensor = new SensorStub(
+                temperatureInC: 30,      // >25 to trigger the logic
+                precipitation: 70,       // >60 for high precipitation
+                windSpeedKMPH: 10        // <50 for low wind
+            );
 
             // strengthen the assert to expose the bug
             // (function returns Sunny day, it should predict rain)
             string report = Weather.Report(sensor);
-            Debug.Assert(report != null);
+            Debug.Assert(!report.Contains("Sunny Day"));
         }
 
         static void Main(string[] args)

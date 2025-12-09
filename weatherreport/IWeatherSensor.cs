@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace TemperatureSpace
+namespace Philips.TemperatureSpace
 {
     internal interface IWeatherSensor
     {
-        double TemperatureInC();
-        int Precipitation();
-        int Humidity();
-        int WindSpeedKMPH();
+        double TemperatureInC { get; set; }
+        int Precipitation { get; set; }
+        int WindSpeedKMPH { get; set; }
+        int Humidity { get; set; }
 
     }
 }

@@ -1,31 +1,29 @@
 ﻿
-namespace TemperatureSpace
+namespace Philips.TemperatureSpace
 {    /// <summary>
      /// This is a stub for a weather sensor. For the sake of testing 
      /// we create a stub that generates weather data and allows us to
      /// test the other parts of this application in isolation
      /// without needing the actual Sensor during development
      /// </summary>
-    internal class SensorStub : IWeatherSensor
+    public class SensorStub : IWeatherSensor
     {
-        int IWeatherSensor.Humidity()
-        {
-            return 72;
-        }
+        public double TemperatureInC { get; set; }
+        public int Precipitation { get; set; }
+        public int WindSpeedKMPH { get; set; }
+        public int Humidity { get; set; }
 
-        int IWeatherSensor.Precipitation()
+        // Default values, but can be overridden
+        public SensorStub(
+            double temperatureInC = 26,
+            int precipitation = 70,
+            int windSpeedKMPH = 52,
+            int humidity = 72)
         {
-            return 70;
-        }
-
-        double IWeatherSensor.TemperatureInC()
-        {
-            return 26;
-        }
-
-        int IWeatherSensor.WindSpeedKMPH()
-        {
-            return 52;
+            TemperatureInC = temperatureInC;
+            Precipitation = precipitation;
+            WindSpeedKMPH = windSpeedKMPH;
+            Humidity = humidity;
         }
     }
 }
