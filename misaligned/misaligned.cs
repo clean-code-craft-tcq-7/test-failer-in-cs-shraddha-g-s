@@ -36,7 +36,7 @@ namespace MisalignedSpace {
             {
                 for (int j = 0; j < minorColors.Length; j++)
                 {
-                    Debug.Assert(map[index] == (i * 5 + j, majorColors[i], minorColors[i]),
+                    Debug.Assert(map[index] == (i * majorColors.Length + j, majorColors[i], minorColors[j]),
                         $"Mismatch at index {index}: {map[index]}");
                     index++;
                 }
